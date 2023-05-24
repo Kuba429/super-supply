@@ -1,7 +1,7 @@
 export type itemType = {
 	name: string;
-	categories: typeof categories[keyof typeof categories][];
-	usedBy: typeof heroes[keyof typeof heroes][];
+	categories: (typeof categories)[keyof typeof categories][];
+	usedBy: (typeof heroes)[keyof typeof heroes][];
 };
 // db mock kinda
 export const fetchAllItems: () => itemType[] = () => [
@@ -19,4 +19,4 @@ export const fetchAllItems: () => itemType[] = () => [
 
 // universal naming to avoid having different spelling of the same thing like 'spiderman' and 'spider-man'
 const heroes = ["Spider-Man", "Iron Man"] as const;
-const categories = ["suit", "weapon"] as const;
+const categories = ["suit", "weapon", "material"] as const;
