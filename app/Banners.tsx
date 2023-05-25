@@ -1,16 +1,23 @@
 "use client";
-import { CSSProperties, useEffect, useState } from "react";
+import {
+	CSSProperties,
+	Dispatch,
+	SetStateAction,
+	useEffect,
+	useState,
+} from "react";
 import { BsArrowRightShort } from "react-icons/bs";
+
 export default function () {
+	const SLIDES_COUNT = 3;
 	const [slide, setSlide] = useState(0);
 	useEffect(() => {
-		const MAX_SLIDES = 3;
 		const interval = setInterval(
-			() => setSlide((s) => (s + 1) % MAX_SLIDES),
+			() => setSlide((s) => (s + 1) % SLIDES_COUNT),
 			2000
 		);
 		return () => clearInterval(interval);
-	}, [setSlide]);
+	}, [setSlide, slide]); // added slide as dep for when user explicitly changes slide
 
 	// tailwind doesn't seem to be working well with arbitrary values when state is involved
 	const style: CSSProperties = {
@@ -18,16 +25,46 @@ export default function () {
 		transition: "transform 0.3s ease",
 	};
 	return (
-		<div className="w-screen grid grid-cols-[repeat(3,_100vw)] overflow-hidden transition-transform">
-			<div style={style}>
-				<ApparelBanner />
+		<>
+			<div className="grid w-screen grid-cols-[repeat(3,_100vw)] overflow-x-hidden transition-transform">
+				<div style={style}>
+					<ApparelBanner />
+				</div>
+				<div style={style}>
+					<WeaponsBanner />
+				</div>
+				<div style={style}>
+					<ArtifactsBanner />
+				</div>
 			</div>
-			<div style={style}>
-				<WeaponsBanner />
-			</div>
-			<div style={style}>
-				<ArtifactsBanner />
-			</div>
+			<SlideIndicator
+				SLIDES_COUNT={SLIDES_COUNT}
+				slide={slide}
+				setSlide={setSlide}
+			/>
+		</>
+	);
+}
+function SlideIndicator({
+	SLIDES_COUNT,
+	setSlide,
+	slide,
+}: {
+	SLIDES_COUNT: number;
+	setSlide: Dispatch<SetStateAction<number>>;
+	slide: number;
+}) {
+	return (
+		<div className="flex w-full justify-center gap-2">
+			{Array.from({ length: SLIDES_COUNT }, (_, idx) => (
+				<div
+					className={
+						"h-2 w-10 cursor-pointer border-2 border-red-500 transition-all hover:h-4 " +
+						(idx === slide ? "bg-red-500" : "bg-white")
+					}
+					onClick={() => setSlide(idx)}
+				></div>
+			))}
 		</div>
 	);
 }
