@@ -27,12 +27,10 @@ export default function RootLayout({
 
 const Navbar = () => {
 	return (
-		<nav className="flex items-center justify-between bg-red-500 px-3">
-			<span className="text-xl font-bold text-neutral-50">
-				SuperSupply
-			</span>
+		<nav className="flex border-b sticky shadow-red-500 items-center justify-between text-neutral-800 px-3">
+			<span className="text-xl font-bold text-red-500">SuperSupply</span>
 			<SearchBar />
-			<div className="flex aspect-square items-center justify-center gap-1 text-neutral-50">
+			<div className="flex aspect-square items-center justify-center gap-1">
 				<span>$0.00</span>
 				<FaShoppingCart size={20} />
 			</div>
