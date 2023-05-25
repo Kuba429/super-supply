@@ -1,3 +1,4 @@
+import Banners from "./Banners";
 import { fetchAllItems, type itemType } from "./data";
 
 async function fetchItems() {
@@ -8,5 +9,9 @@ async function fetchItems() {
 
 export default async function Home() {
 	const data = await fetchItems();
-	return <></>;
+	return (
+		<>
+			<Banners />
+		</>
+	);
 }
