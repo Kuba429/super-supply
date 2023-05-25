@@ -1,13 +1,34 @@
 "use client";
+import { CSSProperties, useEffect, useState } from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 export default function () {
-	// TODO carousel
+	const [slide, setSlide] = useState(0);
+	useEffect(() => {
+		const MAX_SLIDES = 3;
+		const interval = setInterval(
+			() => setSlide((s) => (s + 1) % MAX_SLIDES),
+			2000
+		);
+		return () => clearInterval(interval);
+	}, [setSlide]);
+
+	// tailwind doesn't seem to be working well with arbitrary values when state is involved
+	const style: CSSProperties = {
+		transform: `translateX(-${slide * 100}vw)`,
+		transition: "transform 0.3s ease",
+	};
 	return (
-		<>
-			<ApparelBanner />
-			<WeaponsBanner />
-			<ArtifactsBanner />
-		</>
+		<div className="w-screen grid grid-cols-[repeat(3,_100vw)] overflow-hidden transition-transform">
+			<div style={style}>
+				<ApparelBanner />
+			</div>
+			<div style={style}>
+				<WeaponsBanner />
+			</div>
+			<div style={style}>
+				<ArtifactsBanner />
+			</div>
+		</div>
 	);
 }
 
