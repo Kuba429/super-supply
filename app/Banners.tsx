@@ -14,7 +14,7 @@ export default function () {
 	useEffect(() => {
 		const interval = setInterval(
 			() => setSlide((s) => (s + 1) % SLIDES_COUNT),
-			2000
+			5000
 		);
 		return () => clearInterval(interval);
 	}, [setSlide, slide]); // added slide as dep for when user explicitly changes slide
@@ -58,6 +58,7 @@ function SlideIndicator({
 		<div className="flex w-full justify-center gap-2">
 			{Array.from({ length: SLIDES_COUNT }, (_, idx) => (
 				<div
+					key={"slide-nav-" + idx}
 					className={
 						"h-2 w-10 cursor-pointer border-2 border-red-500 transition-all hover:h-4 " +
 						(idx === slide ? "bg-red-500" : "bg-white")
@@ -99,12 +100,13 @@ function WeaponsBanner() {
 				Weapons
 			</h1>
 			<p className="grid-row-2 max-w-sm self-center text-right">
-				Shop for the most reliable weapons on the market
+				Unlock Limitless Power with our Handpicked Selection of Mighty
+				Weapons
 			</p>
 			<ShopNowButton />
 			<img
-				src="banners/thors-hammer.png"
-				className="col-start-2 row-start-1 row-end-4 max-h-full rotate-45 place-self-center object-contain"
+				src="banners/rocket.webp"
+				className="col-start-2 row-start-1 row-end-4 max-h-full place-self-center object-contain"
 				alt="Thor's hammer"
 			/>
 		</section>
