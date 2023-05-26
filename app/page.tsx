@@ -1,4 +1,5 @@
 import Banners from "./Banners";
+import ItemCard from "./ItemCard";
 import { fetchAllItems, type itemType } from "./data";
 
 async function fetchItems() {
@@ -12,6 +13,9 @@ export default async function Home() {
 	return (
 		<>
 			<Banners />
+			<div className="m-10 grid grid-cols-4 place-items-center gap-5">
+				<ItemCard />
+			</div>
 		</>
 	);
 }
