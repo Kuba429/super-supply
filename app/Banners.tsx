@@ -55,7 +55,7 @@ function SlideIndicator({
 	slide: number;
 }) {
 	return (
-		<div className="flex w-full justify-center gap-2">
+		<div className="flex h-4 w-full justify-center gap-2">
 			{Array.from({ length: SLIDES_COUNT }, (_, idx) => (
 				<div
 					key={"slide-nav-" + idx}
