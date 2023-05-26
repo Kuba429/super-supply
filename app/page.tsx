@@ -14,7 +14,9 @@ export default async function Home() {
 		<>
 			<Banners />
 			<div className="m-10 grid grid-cols-4 place-items-center gap-5">
-				<ItemCard />
+				{data.map((i) => (
+					<ItemCard item={i} />
+				))}
 			</div>
 		</>
 	);
