@@ -19,14 +19,14 @@ export const fetchAllItems: () => itemType[] = () => [
 		categories: ["weapon"],
 		usedBy: ["Star Lord"],
 		image: "/items/star-lord-gun.webp",
-		price: 2500,
+		price: 2_500,
 	},
 	{
 		name: "Laser Cannon",
 		categories: ["weapon"],
 		usedBy: ["Rocket Raccoon"],
 		image: "/items/laser-cannon.png",
-		price: 5000,
+		price: 5_000,
 	},
 	{
 		name: "Iron Man's suit",
@@ -35,13 +35,76 @@ export const fetchAllItems: () => itemType[] = () => [
 		image: "/items/ironman.webp",
 		price: 1_000_000_000_000,
 	},
+	{
+		name: "Vibranium Shield",
+		categories: ["weapon", "defensive equipment"],
+		usedBy: ["Captain America"],
+		image: "/items/vibranium-shield.webp",
+		price: 350_000,
+	},
+	{
+		name: "Cloak of Levitation",
+		categories: ["apparel", "artifact", "defensive equipment"],
+		usedBy: ["Doctor Strange"],
+		image: "/items/cloak-of-levitation.png",
+		price: 2_000_000,
+	},
+	{
+		name: "Mjolnir",
+		categories: ["artifact", "weapon"],
+		usedBy: ["Thor"],
+		image: "/items/mjolnir.webp",
+		price: 50_000_000,
+	},
+	{
+		name: "Super Soldier Serum - Hulk",
+		categories: ["body enhancement"],
+		usedBy: ["Hulk"],
+		image: "/items/hulk-serum.png",
+		price: 100_000,
+	},
+	{
+		name: "Super Soldier Serum - Classic",
+		categories: ["body enhancement"],
+		usedBy: ["Captain America"],
+		image: "/items/super-soldier-serum.png",
+		price: 100_000,
+	},
+	{
+		name: "Web Shooter",
+		categories: ["accesory"],
+		usedBy: ["Spider-Man"],
+		image: "/items/web-shooter.png",
+		price: 8000,
+	},
+	{
+		name: "Billy Club",
+		categories: ["weapon"],
+		usedBy: ["Daredevil"],
+		image: "/items/billy-club.png",
+		price: 100,
+	},
 ];
 
 // universal naming to avoid having different spelling of the same thing like 'spiderman' and 'spider-man'
 const heroes = [
 	"Spider-Man",
 	"Iron Man",
+	"Hulk",
+	"Captain America",
+	"Daredevil",
 	"Rocket Raccoon",
 	"Star Lord",
+	"Doctor Strange",
+	"Thor",
 ] as const;
-const categories = ["suit", "apparel", "weapon", "material"] as const;
+const categories = [
+	"suit",
+	"apparel",
+	"weapon",
+	"material",
+	"artifact",
+	"accesory",
+	"defensive equipment",
+	"body enhancement",
+] as const;
