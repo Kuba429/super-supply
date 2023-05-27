@@ -8,7 +8,7 @@ import {
 } from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 
-export default function () {
+export default function Banners() {
 	const SLIDES_COUNT = 3;
 	const [slide, setSlide] = useState(0);
 	useEffect(() => {
