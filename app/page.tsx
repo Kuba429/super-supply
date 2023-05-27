@@ -31,8 +31,8 @@ function DisplayHeader({ children }: { children: ReactNode }) {
 function DisplayContainer({ data }: { data: itemType[] }) {
 	return (
 		<div className="flex w-full snap-x gap-4 overflow-scroll p-5 shadow-inherit">
-			{data.map((i) => (
-				<ItemCard item={i} />
+			{data.map((i, idx) => (
+				<ItemCard key={i.name + idx} item={i} />
 			))}
 		</div>
 	);

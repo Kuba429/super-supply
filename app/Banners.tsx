@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import {
 	CSSProperties,
 	Dispatch,
@@ -69,12 +70,12 @@ function SlideIndicator({
 		</div>
 	);
 }
-
+import apparelImage from "../public/banners/starlord.webp";
 function ApparelBanner() {
 	return (
 		<section className="m-5 grid h-96 grid-cols-2 grid-rows-[1fr_auto_1fr] place-items-start gap-x-5 gap-y-5">
-			<img
-				src="banners/starlord.webp"
+			<Image
+				src={apparelImage}
 				className="row-start-1 row-end-4 max-h-full place-self-center object-contain"
 				alt="Starlord"
 			/>
@@ -93,6 +94,7 @@ function ApparelBanner() {
 	);
 }
 
+import weaponImage from "../public/banners/rocket.webp";
 function WeaponsBanner() {
 	return (
 		<section className="m-5 grid h-96 grid-cols-2 grid-rows-[1fr_auto_1fr] place-items-end items-start gap-x-5 gap-y-5">
@@ -104,8 +106,8 @@ function WeaponsBanner() {
 				Weapons
 			</p>
 			<ShopNowButton />
-			<img
-				src="banners/rocket.webp"
+			<Image
+				src={weaponImage}
 				className="col-start-2 row-start-1 row-end-4 max-h-full place-self-center object-contain"
 				alt="Thor's hammer"
 			/>
@@ -113,6 +115,7 @@ function WeaponsBanner() {
 	);
 }
 
+import artifactImage from "../public/banners/gauntlet.webp";
 function ArtifactsBanner() {
 	return (
 		<section className="m-5 grid h-96 grid-cols-2 grid-rows-[1fr_auto_1fr] place-items-start gap-x-5 gap-y-5">
@@ -123,8 +126,8 @@ function ArtifactsBanner() {
 				Buy some of the most powerful objects in the universe!
 			</p>
 			<ShopNowButton />
-			<img
-				src="banners/gauntlet.webp"
+			<Image
+				src={artifactImage}
 				className="row-start-1 row-end-4 max-h-full place-self-center object-contain"
 				alt="Infinity Gauntlet"
 			/>
