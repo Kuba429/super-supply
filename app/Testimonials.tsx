@@ -47,7 +47,7 @@ function Testimonial({
 		<div className="m-auto flex w-2/3 items-center justify-center gap-4 p-5">
 			<Image
 				src={imageSrc}
-				alt="Tony Stark"
+				alt={name}
 				width={200}
 				height={200}
 				className="aspect-square rounded-full bg-slate-300 object-contain shadow-2xl"
