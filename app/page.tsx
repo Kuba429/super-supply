@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Banners from "./Banners";
 import ItemCard from "./ItemCard";
 import { fetchAllItems, type itemType } from "./data";
+import Testimonials from "./Testimonials";
 
 async function fetchItems() {
 	const allItems = fetchAllItems();
@@ -17,6 +18,7 @@ export default async function Home() {
 			<TopSellersDisplay />
 			{/* @ts-expect-error Async Server Component */}
 			<HotDealsDisplay />
+			<Testimonials />
 		</>
 	);
 }
