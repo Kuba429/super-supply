@@ -24,14 +24,23 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
 }
 
+function Footer() {
+	return (
+		<footer className="mt-5 bg-red-500 p-10 text-center text-white">
+			This is going to be a footer
+		</footer>
+	);
+}
+
 function Navbar() {
 	return (
-		<nav className="flex border-b sticky shadow-red-500 items-center justify-between text-neutral-800 px-3">
+		<nav className="sticky flex items-center justify-between border-b px-3 text-neutral-800 shadow-red-500">
 			<span
 				className={
 					"text-2xl font-bold text-red-500 " + lobster.className

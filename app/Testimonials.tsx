@@ -7,7 +7,12 @@ export default function Testimonials() {
 				Customer Stories: Real{" "}
 				<span className="text-red-500">Heroes</span>, Real Experiences.
 			</h2>
-			<Carousel>
+			<Carousel
+				showIndicator={true}
+				customIndicatorClass={
+					"w-4 h-4 transition-colors border-2 border-red-500 cursor-pointer appearance-none rounded-full bg-white [&:hover:not(:checked)]:bg-red-400 checked:bg-red-500"
+				}
+			>
 				<Testimonial
 					name="Tony Stark"
 					description="Lorem ipsum dolor, sit amet consectetur adipisicing elit.
