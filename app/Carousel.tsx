@@ -37,7 +37,7 @@ export function Carousel({
 		<>
 			<div
 				style={{ gridTemplateColumns: `repeat(${slidesCount},100vw)` }} // doesn't work in tailwind
-				className={`grid`}
+				className={`grid overflow-x-hidden`}
 			>
 				{React.Children.map(children, (node: ReactNode) => (
 					<div style={slideStyle}>{node}</div>
