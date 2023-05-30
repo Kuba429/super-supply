@@ -1,75 +1,16 @@
-"use client";
 import Image from "next/image";
-import {
-	CSSProperties,
-	Dispatch,
-	SetStateAction,
-	useEffect,
-	useState,
-} from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 
 export default function Banners() {
-	const SLIDES_COUNT = 3;
-	const [slide, setSlide] = useState(0);
-	useEffect(() => {
-		const interval = setInterval(
-			() => setSlide((s) => (s + 1) % SLIDES_COUNT),
-			5000
-		);
-		return () => clearInterval(interval);
-	}, [setSlide, slide]); // added slide as dep for when user explicitly changes slide
+	return (
+		<Carousel showIndicator={true}>
+			<ApparelBanner />
+			<WeaponsBanner />
+			<ArtifactsBanner />
+		</Carousel>
+	);
+}
 
-	// tailwind doesn't seem to be working well with arbitrary values when state is involved
-	const style: CSSProperties = {
-		transform: `translateX(-${slide * 100}vw)`,
-		transition: "transform 0.3s ease",
-	};
-	return (
-		<>
-			<div className="grid w-screen grid-cols-[repeat(3,_100vw)] overflow-x-hidden transition-transform">
-				<div style={style}>
-					<ApparelBanner />
-				</div>
-				<div style={style}>
-					<WeaponsBanner />
-				</div>
-				<div style={style}>
-					<ArtifactsBanner />
-				</div>
-			</div>
-			<SlideIndicator
-				SLIDES_COUNT={SLIDES_COUNT}
-				slide={slide}
-				setSlide={setSlide}
-			/>
-		</>
-	);
-}
-function SlideIndicator({
-	SLIDES_COUNT,
-	setSlide,
-	slide,
-}: {
-	SLIDES_COUNT: number;
-	setSlide: Dispatch<SetStateAction<number>>;
-	slide: number;
-}) {
-	return (
-		<div className="flex h-4 w-full justify-center gap-2">
-			{Array.from({ length: SLIDES_COUNT }, (_, idx) => (
-				<div
-					key={"slide-nav-" + idx}
-					className={
-						"h-2 w-10 cursor-pointer border-2 border-red-500 transition-all hover:h-4 " +
-						(idx === slide ? "bg-red-500" : "bg-white")
-					}
-					onClick={() => setSlide(idx)}
-				></div>
-			))}
-		</div>
-	);
-}
 import apparelImage from "../public/banners/starlord.webp";
 function ApparelBanner() {
 	return (
@@ -116,6 +57,7 @@ function WeaponsBanner() {
 }
 
 import artifactImage from "../public/banners/gauntlet.webp";
+import { Carousel } from "./Carousel";
 function ArtifactsBanner() {
 	return (
 		<section className="m-5 grid h-96 grid-cols-2 grid-rows-[1fr_auto_1fr] place-items-start gap-x-5 gap-y-5">
