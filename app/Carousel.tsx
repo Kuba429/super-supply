@@ -72,7 +72,7 @@ function SlideIndicator({
 					key={"slide-nav-" + idx}
 					className={
 						customIndicatorClass ??
-						"h-2 w-10 cursor-pointer appearance-none border-2 border-red-500 bg-white outline-none transition-all checked:bg-red-500 hover:h-4"
+						"h-2 w-10 cursor-pointer appearance-none rounded-none border-2 border-red-500 bg-white outline-none transition-all checked:bg-red-500 hover:h-4"
 					}
 					type="checkbox"
 					checked={currentSlide === idx}

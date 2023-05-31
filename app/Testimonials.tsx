@@ -49,13 +49,13 @@ function Testimonial({
 	imageSrc: string;
 }) {
 	return (
-		<div className="m-auto flex w-2/3 items-center justify-center gap-4 p-5">
+		<div className="mx-auto my-5 flex w-11/12 flex-col items-center justify-center gap-4 rounded-xl bg-slate-100 p-5 text-center md:w-2/3 md:flex-row md:text-left">
 			<Image
 				src={imageSrc}
 				alt={name}
 				width={200}
 				height={200}
-				className="aspect-square rounded-full bg-slate-300 object-contain shadow-2xl"
+				className="aspect-square max-w-[50%] rounded-full bg-slate-300 object-contain shadow-2xl"
 			/>
 			<div>
 				<h3 className="pb-1 text-2xl font-bold text-neutral-700">
