@@ -1,13 +1,16 @@
 export type itemType = {
+	id: number;
 	name: string;
 	categories: (typeof categories)[keyof typeof categories][];
 	usedBy: (typeof heroes)[keyof typeof heroes][];
 	image: string;
 	price: number;
 };
+let id = 0;
 // db mock kinda
 export const fetchAllItems: () => itemType[] = () => [
 	{
+		id: ++id,
 		name: "Spider-man's classic suit",
 		categories: ["suit", "apparel"],
 		usedBy: ["Spider-Man"],
@@ -15,6 +18,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 50,
 	},
 	{
+		id: ++id,
 		name: "Element Gun",
 		categories: ["weapon"],
 		usedBy: ["Star Lord"],
@@ -22,6 +26,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 2_500,
 	},
 	{
+		id: ++id,
 		name: "Laser Cannon",
 		categories: ["weapon"],
 		usedBy: ["Rocket Raccoon"],
@@ -29,6 +34,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 5_000,
 	},
 	{
+		id: ++id,
 		name: "Iron Man's suit",
 		categories: ["suit", "apparel"],
 		usedBy: ["Iron Man"],
@@ -36,6 +42,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 1_000_000_000_000,
 	},
 	{
+		id: ++id,
 		name: "Vibranium Shield",
 		categories: ["weapon", "defensive equipment"],
 		usedBy: ["Captain America"],
@@ -43,6 +50,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 350_000,
 	},
 	{
+		id: ++id,
 		name: "Cloak of Levitation",
 		categories: ["apparel", "artifact", "defensive equipment"],
 		usedBy: ["Doctor Strange"],
@@ -50,6 +58,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 2_000_000,
 	},
 	{
+		id: ++id,
 		name: "Mjolnir",
 		categories: ["artifact", "weapon"],
 		usedBy: ["Thor"],
@@ -57,6 +66,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 50_000_000,
 	},
 	{
+		id: ++id,
 		name: "Super Soldier Serum - Hulk",
 		categories: ["body enhancement"],
 		usedBy: ["Hulk"],
@@ -64,6 +74,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 100_000,
 	},
 	{
+		id: ++id,
 		name: "Super Soldier Serum - Classic",
 		categories: ["body enhancement"],
 		usedBy: ["Captain America"],
@@ -71,6 +82,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 100_000,
 	},
 	{
+		id: ++id,
 		name: "Web Shooter",
 		categories: ["accesory"],
 		usedBy: ["Spider-Man"],
@@ -78,6 +90,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 8000,
 	},
 	{
+		id: ++id,
 		name: "Billy Club",
 		categories: ["weapon"],
 		usedBy: ["Daredevil"],
