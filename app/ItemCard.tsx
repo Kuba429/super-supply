@@ -11,7 +11,7 @@ export default function ItemCard({ item }: { item: itemType }) {
 				alt={item.name + " image"}
 				className="h-1 flex-grow self-center justify-self-center object-contain p-1"
 			/>
-			<div className="bg-neutral-100 p-2 shadow-inner">
+			<div className="rounded-b bg-neutral-100 p-2 shadow-inner">
 				<h3 className="line-clamp-3 break-words text-xl font-semibold">
 					{item.name}
 				</h3>

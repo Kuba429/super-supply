@@ -1,5 +1,5 @@
 // universal naming to avoid having different spelling of the same thing like 'spiderman' and 'spider-man'
-const heroes = [
+export const heroes = [
 	{ name: "Spider-Man", image: "" },
 	{ name: "Iron Man", image: "" },
 	{ name: "Hulk", image: "" },
@@ -11,15 +11,15 @@ const heroes = [
 	{ name: "Thor", image: "" },
 ] as const;
 
-const categories = [
-	{ name: "suit", image: "" },
-	{ name: "apparel", image: "" },
-	{ name: "weapon", image: "" },
-	{ name: "material", image: "" },
-	{ name: "artifact", image: "" },
-	{ name: "accesory", image: "" },
-	{ name: "defensive equipment", image: "" },
-	{ name: "body enhancement", image: "" },
+export const categories = [
+	{ name: "suit", image: "/items/spiderman.webp" },
+	{ name: "apparel", image: "/banners/starlord.webp" },
+	{ name: "weapon", image: "/items/billy-club.png" },
+	//{ name: "material", image: "" },
+	{ name: "artifact", image: "/items/space-stone.webp" },
+	{ name: "accesory", image: "/items/tony-stark-glasses.webp" },
+	{ name: "defensive equipment", image: "/items/vibranium-shield.webp" },
+	{ name: "body enhancement", image: "/items/hulk-serum.png" },
 ] as const;
 
 export type itemType = {
@@ -40,6 +40,14 @@ export const fetchAllItems: () => itemType[] = () => [
 		usedBy: ["Spider-Man"],
 		image: "/items/spiderman.webp",
 		price: 50,
+	},
+	{
+		id: ++id,
+		name: "Tony Stark Glasses",
+		categories: ["apparel", "accesory"],
+		usedBy: ["Iron Man"],
+		image: "/items/tony-stark-glasses.webp",
+		price: 1_050,
 	},
 	{
 		id: ++id,
