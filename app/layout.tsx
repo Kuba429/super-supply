@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={inter.className + " flex min-h-screen flex-col"}>
 				<Navbar />
 				{children}
 				<Footer />
@@ -32,9 +32,12 @@ export default function RootLayout({
 
 function Footer() {
 	return (
-		<footer className="mt-5 bg-red-500 p-10 text-center text-white">
-			This is going to be a footer
-		</footer>
+		<>
+			<div className="flex-grow" />
+			<footer className="mt-5 bg-red-500 p-10 text-center text-white">
+				This is going to be a footer
+			</footer>
+		</>
 	);
 }
 
