@@ -12,14 +12,13 @@ export const heroes = [
 ] as const;
 
 export const categories = [
-	{ name: "suit", image: "/items/spiderman.webp" },
+	{ name: "suits", image: "/items/spiderman.webp" },
 	{ name: "apparel", image: "/banners/starlord.webp" },
-	{ name: "weapon", image: "/items/billy-club.png" },
-	//{ name: "material", image: "" },
-	{ name: "artifact", image: "/items/space-stone.webp" },
-	{ name: "accesory", image: "/items/tony-stark-glasses.webp" },
+	{ name: "weapons", image: "/items/billy-club.png" },
+	{ name: "artifacts", image: "/items/space-stone.webp" },
+	{ name: "accesories", image: "/items/tony-stark-glasses.webp" },
 	{ name: "defensive equipment", image: "/items/vibranium-shield.webp" },
-	{ name: "body enhancement", image: "/items/hulk-serum.png" },
+	{ name: "body enhancements", image: "/items/hulk-serum.png" },
 ] as const;
 
 export type itemType = {
@@ -36,7 +35,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Spider-man's classic suit",
-		categories: ["suit", "apparel"],
+		categories: ["suits", "apparel"],
 		usedBy: ["Spider-Man"],
 		image: "/items/spiderman.webp",
 		price: 50,
@@ -44,7 +43,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Tony Stark Glasses",
-		categories: ["apparel", "accesory"],
+		categories: ["apparel", "accesories"],
 		usedBy: ["Iron Man"],
 		image: "/items/tony-stark-glasses.webp",
 		price: 1_050,
@@ -52,7 +51,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Element Gun",
-		categories: ["weapon"],
+		categories: ["weapons"],
 		usedBy: ["Star Lord"],
 		image: "/items/star-lord-gun.webp",
 		price: 2_500,
@@ -60,7 +59,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Laser Cannon",
-		categories: ["weapon"],
+		categories: ["weapons"],
 		usedBy: ["Rocket Raccoon"],
 		image: "/items/laser-cannon.png",
 		price: 5_000,
@@ -68,7 +67,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Iron Man's suit",
-		categories: ["suit", "apparel"],
+		categories: ["suits", "apparel"],
 		usedBy: ["Iron Man"],
 		image: "/items/ironman.webp",
 		price: 1_000_000_000_000,
@@ -76,7 +75,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Vibranium Shield",
-		categories: ["weapon", "defensive equipment"],
+		categories: ["weapons", "defensive equipment"],
 		usedBy: ["Captain America"],
 		image: "/items/vibranium-shield.webp",
 		price: 350_000,
@@ -84,7 +83,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Cloak of Levitation",
-		categories: ["apparel", "artifact", "defensive equipment"],
+		categories: ["apparel", "artifacts", "defensive equipment"],
 		usedBy: ["Doctor Strange"],
 		image: "/items/cloak-of-levitation.png",
 		price: 2_000_000,
@@ -92,7 +91,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Mjolnir",
-		categories: ["artifact", "weapon"],
+		categories: ["artifacts", "weapons"],
 		usedBy: ["Thor"],
 		image: "/items/mjolnir.webp",
 		price: 50_000_000,
@@ -100,7 +99,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Super Soldier Serum - Hulk",
-		categories: ["body enhancement"],
+		categories: ["body enhancements"],
 		usedBy: ["Hulk"],
 		image: "/items/hulk-serum.png",
 		price: 100_000,
@@ -108,7 +107,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Super Soldier Serum - Classic",
-		categories: ["body enhancement"],
+		categories: ["body enhancements"],
 		usedBy: ["Captain America"],
 		image: "/items/super-soldier-serum.png",
 		price: 100_000,
@@ -116,7 +115,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Web Shooter",
-		categories: ["accesory"],
+		categories: ["accesories"],
 		usedBy: ["Spider-Man"],
 		image: "/items/web-shooter.png",
 		price: 8000,
@@ -124,7 +123,7 @@ export const fetchAllItems: () => itemType[] = () => [
 	{
 		id: ++id,
 		name: "Billy Club",
-		categories: ["weapon"],
+		categories: ["weapons"],
 		usedBy: ["Daredevil"],
 		image: "/items/billy-club.png",
 		price: 100,
