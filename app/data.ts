@@ -1,8 +1,32 @@
+// universal naming to avoid having different spelling of the same thing like 'spiderman' and 'spider-man'
+const heroes = [
+	{ name: "Spider-Man", image: "" },
+	{ name: "Iron Man", image: "" },
+	{ name: "Hulk", image: "" },
+	{ name: "Captain America", image: "" },
+	{ name: "Daredevil", image: "" },
+	{ name: "Rocket Raccoon", image: "" },
+	{ name: "Star Lord", image: "" },
+	{ name: "Doctor Strange", image: "" },
+	{ name: "Thor", image: "" },
+] as const;
+
+const categories = [
+	{ name: "suit", image: "" },
+	{ name: "apparel", image: "" },
+	{ name: "weapon", image: "" },
+	{ name: "material", image: "" },
+	{ name: "artifact", image: "" },
+	{ name: "accesory", image: "" },
+	{ name: "defensive equipment", image: "" },
+	{ name: "body enhancement", image: "" },
+] as const;
+
 export type itemType = {
 	id: number;
 	name: string;
-	categories: (typeof categories)[keyof typeof categories][];
-	usedBy: (typeof heroes)[keyof typeof heroes][];
+	categories: (typeof categories)[number]["name"][];
+	usedBy: (typeof heroes)[number]["name"][];
 	image: string;
 	price: number;
 };
@@ -98,26 +122,3 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 100,
 	},
 ];
-
-// universal naming to avoid having different spelling of the same thing like 'spiderman' and 'spider-man'
-const heroes = [
-	"Spider-Man",
-	"Iron Man",
-	"Hulk",
-	"Captain America",
-	"Daredevil",
-	"Rocket Raccoon",
-	"Star Lord",
-	"Doctor Strange",
-	"Thor",
-] as const;
-const categories = [
-	"suit",
-	"apparel",
-	"weapon",
-	"material",
-	"artifact",
-	"accesory",
-	"defensive equipment",
-	"body enhancement",
-] as const;
