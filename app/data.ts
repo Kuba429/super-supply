@@ -10,7 +10,7 @@ export const heroes = [
 	{ name: "Doctor Strange", image: "" },
 	{ name: "Thor", image: "" },
 ] as const;
-export type heroType = (typeof heroes)[number]["name"][];
+export type heroType = (typeof heroes)[number]["name"];
 
 export const categories = [
 	{ name: "suits", image: "/items/spiderman.webp" },
@@ -21,13 +21,13 @@ export const categories = [
 	{ name: "defensive equipment", image: "/items/vibranium-shield.webp" },
 	{ name: "body enhancements", image: "/items/hulk-serum.png" },
 ] as const;
-export type categoryType = (typeof categories)[number]["name"][];
+export type categoryType = (typeof categories)[number]["name"];
 
 export type itemType = {
 	id: number;
 	name: string;
-	categories: categoryType;
-	usedBy: heroType;
+	categories: categoryType[];
+	usedBy: heroType[];
 	image: string;
 	price: number;
 };
