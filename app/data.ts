@@ -24,7 +24,7 @@ export const categories = [
 export type categoryType = (typeof categories)[number]["name"];
 
 export type itemType = {
-	id: number;
+	id: string;
 	name: string;
 	categories: categoryType[];
 	usedBy: heroType[];
@@ -35,7 +35,7 @@ let id = 0;
 // db mock kinda
 export const fetchAllItems: () => itemType[] = () => [
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Spider-man's classic suit",
 		categories: ["suits", "apparel"],
 		usedBy: ["Spider-Man"],
@@ -43,7 +43,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 50,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Tony Stark Glasses",
 		categories: ["apparel", "accesories"],
 		usedBy: ["Iron Man"],
@@ -51,7 +51,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 1_050,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Element Gun",
 		categories: ["weapons"],
 		usedBy: ["Star Lord"],
@@ -59,7 +59,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 2_500,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Laser Cannon",
 		categories: ["weapons"],
 		usedBy: ["Rocket Raccoon"],
@@ -67,7 +67,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 5_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Iron Man's suit",
 		categories: ["suits", "apparel"],
 		usedBy: ["Iron Man"],
@@ -75,7 +75,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 1_000_000_000_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Vibranium Shield",
 		categories: ["weapons", "defensive equipment"],
 		usedBy: ["Captain America"],
@@ -83,7 +83,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 350_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Cloak of Levitation",
 		categories: ["apparel", "artifacts", "defensive equipment"],
 		usedBy: ["Doctor Strange"],
@@ -91,7 +91,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 2_000_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Mjolnir",
 		categories: ["artifacts", "weapons"],
 		usedBy: ["Thor"],
@@ -99,7 +99,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 50_000_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Super Soldier Serum - Hulk",
 		categories: ["body enhancements"],
 		usedBy: ["Hulk"],
@@ -107,7 +107,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 100_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Super Soldier Serum - Classic",
 		categories: ["body enhancements"],
 		usedBy: ["Captain America"],
@@ -115,7 +115,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 100_000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Web Shooter",
 		categories: ["accesories"],
 		usedBy: ["Spider-Man"],
@@ -123,7 +123,7 @@ export const fetchAllItems: () => itemType[] = () => [
 		price: 8000,
 	},
 	{
-		id: ++id,
+		id: (++id).toString(),
 		name: "Billy Club",
 		categories: ["weapons"],
 		usedBy: ["Daredevil"],

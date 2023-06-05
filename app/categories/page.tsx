@@ -16,6 +16,7 @@ export default async function Categories() {
 					<Link
 						href={`/categories/${i.name}`}
 						className="flex h-40 w-full flex-col items-center rounded bg-white p-3 shadow-lg transition-colors hover:bg-slate-50"
+						key={i.name}
 					>
 						<img
 							className="h-4/5 object-contain"
