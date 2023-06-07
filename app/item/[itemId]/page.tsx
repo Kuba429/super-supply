@@ -14,6 +14,8 @@ export default async function ItemPage({
 		// TODO make a 404 and redirect
 		return <div>404</div>;
 	}
+	const deliveryDate = new Date();
+	deliveryDate.setDate(deliveryDate.getDate() + 2); // TODO add delivery date to items
 	return (
 		<div className="m-5 flex gap-5">
 			<Image
@@ -28,7 +30,73 @@ export default async function ItemPage({
 				<h3>Manufacturer</h3>
 				<h1 className="text-5xl font-bold">{data.name}</h1>
 				<h2 className="my-5 text-xl">${data.price.toLocaleString()}</h2>
+				<p className="my-5">
+					<span className="text-red-500">★★★★★</span> (30)
+				</p>
+				<div className="flex w-full gap-2">
+					<button className="flex-grow rounded bg-red-500 px-5 py-2 uppercase text-white">
+						Add to cart
+					</button>
+					<button className="aspect-square w-10 rounded border border-red-500 bg-white uppercase text-red-500 ">
+						♥
+						{/* TODO add items to favorites (local storage probably) */}
+					</button>
+				</div>
+				<h3 className="my-5">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Corrupti consequatur qui, minima repellat ipsum quidem a
+					fuga facilis assumenda maxime libero perspiciatis earum
+					tenetur laudantium facere repudiandae hic tempore
+					voluptates!
+				</h3>
+				<div className="rounded border-2 border-red-500 bg-white  p-5">
+					Delivery: {formatDate(deliveryDate)}
+				</div>
 			</div>
 		</div>
 	);
 }
+
+function formatDate(date: Date) {
+	let suffix = "";
+	const dateDay = date.getDate();
+	// exceptions first
+	if (dateDay === 11 || dateDay === 12 || dateDay === 13) {
+		suffix = "th";
+	} else if (dateDay.toString().at(-1) === "1") {
+		suffix = "st";
+	} else if (dateDay.toString().at(-1) === "2") {
+		suffix = "nd";
+	} else if (dateDay.toString().at(-1) === "3") {
+		suffix = "rd";
+	} else {
+		suffix = "th";
+	}
+	return `${daysOfWeek[date.getDay()]}, ${
+		months[date.getMonth()]
+	} ${dateDay}${suffix}`;
+}
+
+const months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+const daysOfWeek = [
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+];
