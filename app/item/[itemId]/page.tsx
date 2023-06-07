@@ -1,5 +1,6 @@
 import { fetchAllItems } from "@/app/data";
 import Image from "next/image";
+import AddToFavoritesButton from "./AddToFavorite";
 
 async function fetchData(id: string) {
 	return fetchAllItems().find((i) => i.id === id);
@@ -37,10 +38,7 @@ export default async function ItemPage({
 					<button className="flex-grow rounded bg-red-500 px-5 py-2 uppercase text-white">
 						Add to cart
 					</button>
-					<button className="aspect-square w-10 rounded border border-red-500 bg-white uppercase text-red-500 ">
-						♥
-						{/* TODO add items to favorites (local storage probably) */}
-					</button>
+					<AddToFavoritesButton itemId={data.id} />
 				</div>
 				<h3 className="my-5">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
