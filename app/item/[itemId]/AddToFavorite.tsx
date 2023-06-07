@@ -39,7 +39,7 @@ export default function AddToFavoritesButton({ itemId }: { itemId: string }) {
 	return (
 		<button
 			onClick={handleClick}
-			className={`aspect-square w-10 rounded border-2 ${
+			className={`aspect-square h-12 rounded border-2 border-red-500 ${
 				added ? "bg-red-500 text-white" : "bg-white text-red-500"
 			}`}
 		>
