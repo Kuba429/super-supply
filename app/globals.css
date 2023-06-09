@@ -5,3 +5,7 @@
 body {
 	@apply bg-slate-200;
 }
+
+.container {
+	@apply mx-auto w-full max-w-[90rem];
+}

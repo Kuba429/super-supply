@@ -30,17 +30,19 @@ export function Carousel({
 		return () => clearInterval(interval);
 	}, [setCurrentSlide, currentSlide, time, slidesCount]); // added slide as dep for when user explicitly changes slide
 	const slideStyle: CSSProperties = {
-		transform: `translateX(-${currentSlide * 100}vw)`,
+		transform: `translateX(-${currentSlide * 100}%)`,
 		transition: "transform 0.3s ease",
 	};
 	return (
 		<>
 			<div
-				style={{ gridTemplateColumns: `repeat(${slidesCount},100vw)` }} // doesn't work in tailwind
-				className={`grid overflow-x-hidden`}
+				style={{ gridTemplateColumns: `repeat(${slidesCount},100%)` }} // doesn't work in tailwind
+				className={`grid w-full overflow-x-hidden`}
 			>
 				{React.Children.map(children, (node: ReactNode) => (
-					<div style={slideStyle}>{node}</div>
+					<div className="" style={slideStyle}>
+						{node}
+					</div>
 				))}
 			</div>
 			{showIndicator && (
