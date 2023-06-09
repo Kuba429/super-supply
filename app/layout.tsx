@@ -23,7 +23,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={inter.className + " flex min-h-screen flex-col"}>
 				<Navbar />
-				<div className="container">{children}</div>
+				<div className="container-lg">{children}</div>
 				<Footer />
 			</body>
 		</html>
@@ -35,7 +35,7 @@ function Footer() {
 		<>
 			<div className="flex-grow" />
 			<footer className="mt-5 bg-red-500 p-10 text-center text-white">
-				<div className="container">This is going to be a footer</div>
+				<div className="container-lg">This is going to be a footer</div>
 			</footer>
 		</>
 	);
@@ -43,7 +43,7 @@ function Footer() {
 
 function Navbar() {
 	return (
-		<div className="container sticky top-0 z-20 bg-slate-200">
+		<div className="container-lg sticky top-0 z-20 bg-slate-200">
 			<nav className="flex items-center justify-between border-b px-3 text-neutral-800">
 				<span
 					className={

@@ -6,6 +6,9 @@ body {
 	@apply bg-slate-200;
 }
 
-.container {
+.container-lg {
 	@apply mx-auto w-full max-w-[90rem];
+}
+.container-md {
+	@apply mx-auto w-full max-w-6xl;
 }
