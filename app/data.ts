@@ -23,6 +23,20 @@ export const categories = [
 ] as const;
 export type categoryType = (typeof categories)[number]["name"];
 
+export const manufacturers = [
+	{ name: "Stark Industries" },
+	{ name: "Oscorp" },
+	{ name: "Pym Technologies" },
+	{ name: "Wakandan Design Group" },
+	{ name: "S.H.I.E.L.D" },
+	{ name: "Kree-Tech Innovations" },
+	{ name: "Dwarves of Nidavellir" },
+	{ name: "Project Rebirth Laboratories" },
+	{ name: "Parker Industries" },
+	{ name: "Nelson and Murdock" },
+] as const;
+export type manufacturerType = (typeof manufacturers)[number]["name"];
+
 export type itemType = {
 	id: string;
 	name: string;
@@ -30,6 +44,8 @@ export type itemType = {
 	usedBy: heroType[];
 	image: string;
 	price: number;
+	manufacturer?: manufacturerType;
+	discount?: number; // i don't think it's possible to restrict number to be within range with types sooo
 };
 // db mock kinda
 export const fetchAllItems: () => itemType[] = () => {
@@ -42,6 +58,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Spider-Man"],
 			image: "/items/spiderman.webp",
 			price: 50,
+			manufacturer: "Parker Industries",
 		},
 		{
 			id: (++id).toString(),
@@ -50,6 +67,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Iron Man"],
 			image: "/items/tony-stark-glasses.webp",
 			price: 1_050,
+			manufacturer: "Stark Industries",
 		},
 		{
 			id: (++id).toString(),
@@ -58,6 +76,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Star Lord"],
 			image: "/items/star-lord-gun.webp",
 			price: 2_500,
+			manufacturer: "Kree-Tech Innovations",
 		},
 		{
 			id: (++id).toString(),
@@ -66,6 +85,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Rocket Raccoon"],
 			image: "/items/laser-cannon.png",
 			price: 5_000,
+			manufacturer: "Kree-Tech Innovations",
 		},
 		{
 			id: (++id).toString(),
@@ -74,6 +94,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Iron Man"],
 			image: "/items/ironman.webp",
 			price: 1_000_000_000_000,
+			manufacturer: "Stark Industries",
 		},
 		{
 			id: (++id).toString(),
@@ -98,6 +119,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Thor"],
 			image: "/items/mjolnir.webp",
 			price: 50_000_000,
+			manufacturer: "Dwarves of Nidavellir",
 		},
 		{
 			id: (++id).toString(),
@@ -106,6 +128,8 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Hulk"],
 			image: "/items/hulk-serum.png",
 			price: 100_000,
+			manufacturer: "Project Rebirth Laboratories",
+			discount: 0.2,
 		},
 		{
 			id: (++id).toString(),
@@ -114,6 +138,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Captain America"],
 			image: "/items/super-soldier-serum.png",
 			price: 100_000,
+			manufacturer: "Project Rebirth Laboratories",
 		},
 		{
 			id: (++id).toString(),
@@ -122,6 +147,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Spider-Man"],
 			image: "/items/web-shooter.png",
 			price: 8000,
+			manufacturer: "Parker Industries",
 		},
 		{
 			id: (++id).toString(),
@@ -130,6 +156,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			usedBy: ["Daredevil"],
 			image: "/items/billy-club.png",
 			price: 100,
+			manufacturer: "Nelson and Murdock",
 		},
 	];
 };

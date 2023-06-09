@@ -35,7 +35,7 @@ export default function AddToFavoritesButton({ itemId }: { itemId: string }) {
 		}
 		const favorites = storedFavorites.split(",");
 		if (favorites.find((x) => x === itemId)) setAdded(true);
-	}, []);
+	}, [itemId]);
 	return (
 		<button
 			onClick={handleClick}
