@@ -17,15 +17,15 @@ export default async function ItemPage({
 	const deliveryDate = new Date();
 	deliveryDate.setDate(deliveryDate.getDate() + 2); // TODO add delivery date to items
 	return (
-		<div className="m-5 flex gap-5">
+		<div className="m-5 flex flex-col gap-5 lg:flex-row">
 			<Image
-				className="w-1/2 rounded bg-white object-contain p-5 shadow-lg"
+				className="max-h-[50vh] w-full rounded bg-white object-contain p-5 shadow-lg lg:w-1/2"
 				height={400}
 				width={400}
 				src={data.image}
 				alt={data.name}
 			/>
-			<div className="">
+			<div>
 				{/* TODO add to data */}
 				<h3>Manufacturer</h3>
 				<h1 className="text-5xl font-bold">{data.name}</h1>
