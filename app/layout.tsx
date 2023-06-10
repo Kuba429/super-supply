@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { FaShoppingCart } from "react-icons/fa";
 import { SearchBar } from "./SearchBar";
 import { Lobster } from "next/font/google";
+import Link from "next/link";
 const lobster = Lobster({
 	weight: "400",
 	subsets: ["latin"],
@@ -45,13 +46,14 @@ function Navbar() {
 	return (
 		<div className="container-lg sticky top-0 z-20 bg-slate-200">
 			<nav className="flex items-center justify-between border-b px-3 text-neutral-800">
-				<span
+				<Link
+					href="/"
 					className={
 						"text-2xl font-bold text-red-500 " + lobster.className
 					}
 				>
 					SuperSupply
-				</span>
+				</Link>
 				<SearchBar />
 				<div className="flex aspect-square items-center justify-center gap-1">
 					<span>$0.00</span>
