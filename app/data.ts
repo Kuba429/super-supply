@@ -9,6 +9,10 @@ export const heroes = [
 	{ name: "Star Lord", image: "" },
 	{ name: "Doctor Strange", image: "" },
 	{ name: "Thor", image: "" },
+	{ name: "Wolverine", image: "" },
+	{ name: "Black Panther", image: "" },
+	{ name: "Ant-Man", image: "" },
+	{ name: "Black Widow", image: "" },
 ] as const;
 export type heroType = (typeof heroes)[number]["name"];
 
@@ -34,6 +38,10 @@ export const manufacturers = [
 	{ name: "Project Rebirth Laboratories" },
 	{ name: "Parker Industries" },
 	{ name: "Nelson and Murdock" },
+	{ name: "Department H" },
+	{ name: "Pym Technologies" },
+	{ name: "Red Room Industries" },
+	{ name: "" },
 ] as const;
 export type manufacturerType = (typeof manufacturers)[number]["name"];
 
@@ -146,7 +154,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			categories: ["accesories"],
 			usedBy: ["Spider-Man"],
 			image: "/items/web-shooter.png",
-			price: 8000,
+			price: 8_000,
 			manufacturer: "Parker Industries",
 		},
 		{
@@ -157,6 +165,42 @@ export const fetchAllItems: () => itemType[] = () => {
 			image: "/items/billy-club.png",
 			price: 100,
 			manufacturer: "Nelson and Murdock",
+		},
+		{
+			id: (++id).toString(),
+			name: "Adamantium Claws",
+			categories: ["weapons", "body enhancements"],
+			image: "/items/adamantium-claws.png",
+			usedBy: ["Wolverine"],
+			price: 250_000,
+			manufacturer: "Department H",
+		},
+		{
+			id: (++id).toString(),
+			name: "Infinity Gauntlet",
+			categories: ["weapons", "artifacts"],
+			image: "/banners/gauntlet.webp",
+			usedBy: ["Wolverine"],
+			price: 2_000_000,
+			manufacturer: "Department H",
+		},
+		{
+			id: (++id).toString(),
+			name: "Ant-Man's Suit",
+			categories: ["suits", "apparel"],
+			image: "/items/ant-man-suit.webp",
+			usedBy: ["Ant-Man"],
+			price: 750_000,
+			manufacturer: "Pym Technologies",
+		},
+		{
+			id: (++id).toString(),
+			name: "Widow's Bite Gauntlets",
+			categories: ["weapons", "apparel"],
+			image: "/items/widow-gauntlet.png",
+			usedBy: ["Black Widow"],
+			price: 275_000,
+			manufacturer: "Red Room Industries",
 		},
 	];
 };
