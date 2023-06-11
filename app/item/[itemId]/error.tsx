@@ -7,8 +7,9 @@ export default function Error() {
 				Item not found :(
 			</h1>
 			<h3 className="text-2xl">
-				Sorry, seems like the item You're trying to access doesn't
-				exist.
+				{
+					"Sorry, seems like the item You're trying to access doesn't exist."
+				}
 			</h3>
 		</div>
 	);

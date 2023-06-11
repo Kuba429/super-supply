@@ -1,9 +1,13 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { FaShoppingCart } from "react-icons/fa";
 import { SearchBar } from "./SearchBar";
 import { Lobster } from "next/font/google";
 import Link from "next/link";
+import { Provider } from "react-redux";
+import store from "./store";
+import Cart from "./Cart";
+import ReduxProvider from "./ReduxProvider";
+
 const lobster = Lobster({
 	weight: "400",
 	subsets: ["latin"],
@@ -21,13 +25,17 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={inter.className + " flex min-h-screen flex-col"}>
-				<Navbar />
-				<div className="container-lg">{children}</div>
-				<Footer />
-			</body>
-		</html>
+		<ReduxProvider>
+			<html lang="en">
+				<body
+					className={inter.className + " flex min-h-screen flex-col"}
+				>
+					<Navbar />
+					<div className="container-lg">{children}</div>
+					<Footer />
+				</body>
+			</html>
+		</ReduxProvider>
 	);
 }
 
@@ -55,10 +63,7 @@ function Navbar() {
 					SuperSupply
 				</Link>
 				<SearchBar />
-				<div className="flex aspect-square items-center justify-center gap-1">
-					<span>$0.00</span>
-					<FaShoppingCart size={20} />
-				</div>
+				<Cart />
 			</nav>
 		</div>
 	);
