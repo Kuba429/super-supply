@@ -13,7 +13,7 @@ export default function Cart() {
 	);
 }
 
-function formatPrice(price: number) {
+export function formatPrice(price: number) {
 	const integerLength = Math.trunc(price).toString().length;
 	return price.toPrecision(integerLength + 2);
 }
