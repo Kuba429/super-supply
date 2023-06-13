@@ -68,7 +68,7 @@ function SlideIndicator({
 	customIndicatorClass?: string;
 }) {
 	return (
-		<div className="flex h-4 w-full justify-center gap-2">
+		<div role="navigation" className="flex h-4 w-full justify-center gap-2">
 			{new Array(slidesCount).fill(null).map((_, idx) => (
 				<input
 					key={"slide-nav-" + idx}
@@ -76,9 +76,10 @@ function SlideIndicator({
 						customIndicatorClass ??
 						"h-2 w-10 cursor-pointer appearance-none rounded-none border-2 border-red-500 bg-white outline-none transition-all checked:bg-red-500 hover:h-4"
 					}
-					type="checkbox"
+					type="radio"
 					checked={currentSlide === idx}
 					onChange={() => setCurrentSlide(idx)}
+					role="radio"
 				/>
 			))}
 		</div>
