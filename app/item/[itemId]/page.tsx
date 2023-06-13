@@ -26,8 +26,7 @@ export default async function ItemPage({
 				alt={data.name}
 			/>
 			<div>
-				{/* TODO add to data */}
-				<h3>Manufacturer</h3>
+				{data.manufacturer && <h3>{data.manufacturer}</h3>}
 				<h1 className="text-5xl font-bold">{data.name}</h1>
 				<h2 className="my-5 text-xl">${data.price.toLocaleString()}</h2>
 				<p className="my-5">
