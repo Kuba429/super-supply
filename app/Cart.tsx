@@ -7,7 +7,7 @@ export default function Cart() {
 	const price = cart.reduce((acc, c) => acc + c.price, 0);
 	return (
 		<div className="flex aspect-square items-center justify-center gap-1">
-			<span>${formatPrice(price)}</span>
+			<span role="status">${formatPrice(price)}</span>
 			<FaShoppingCart size={20} />
 		</div>
 	);

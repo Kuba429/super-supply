@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 import { itemType } from "./data";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
@@ -9,10 +9,13 @@ export const cartSlice = createSlice({
 		remove: (state) => {
 			state = [];
 		},
+		addItem: (state, action: PayloadAction<itemType>) => {
+			state.push(action.payload);
+		},
 	},
 });
 
-export const { remove } = cartSlice.actions;
+export const { remove, addItem } = cartSlice.actions;
 const store = configureStore({
 	reducer: { cart: cartSlice.reducer },
 });
