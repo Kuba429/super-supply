@@ -1,6 +1,7 @@
 import { fetchAllItems } from "@/app/data";
 import Image from "next/image";
 import AddToFavoritesButton from "./AddToFavorite";
+import AddToCartButton from "./AddToCartButton";
 
 async function fetchData(id: string) {
 	return fetchAllItems().find((i) => i.id === id);
@@ -33,9 +34,7 @@ export default async function ItemPage({
 					<span className="text-red-500">★★★★★</span> (30)
 				</p>
 				<div className="flex w-full gap-2">
-					<button className="flex-grow rounded bg-red-500 px-5 py-2 uppercase text-white">
-						Add to cart
-					</button>
+					<AddToCartButton item={data} />
 					<AddToFavoritesButton itemId={data.id} />
 				</div>
 				<h3 className="my-5">
