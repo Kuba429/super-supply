@@ -36,11 +36,12 @@ export function Carousel({
 	return (
 		<>
 			<div
+				role="list"
 				style={{ gridTemplateColumns: `repeat(${slidesCount},100%)` }} // doesn't work in tailwind
 				className={`grid w-full overflow-x-hidden`}
 			>
 				{React.Children.map(children, (node: ReactNode) => (
-					<div className="" style={slideStyle}>
+					<div role="listitem" style={slideStyle}>
 						{node}
 					</div>
 				))}
