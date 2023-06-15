@@ -1,4 +1,4 @@
-import Cart, { formatPrice } from "@/app/Cart";
+import Cart from "@/app/Cart";
 import ReduxProvider from "@/app/ReduxProvider";
 import { addItem } from "@/app/store";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
@@ -27,26 +27,25 @@ const AddItemButton = ({ price }: { price: number }) => {
 
 describe("<Cart/>", () => {
 	afterEach(() => cleanup());
-	it("Format price", () => {
-		expect(formatPrice(123)).toBe("123.00");
-		expect(formatPrice(0)).toBe("0.00");
-		expect(formatPrice(55.3)).toBe("55.30");
-		expect(formatPrice(1.1234)).toBe("1.12");
-	});
+	//	it("Format price", () => {
+	//		expect(formatPrice(123)).toBe("123.00");
+	//		expect(formatPrice(0)).toBe("0.00");
+	//		expect(formatPrice(55.3)).toBe("55.30");
+	//		expect(formatPrice(1.1234)).toBe("1.12");
+	//	});
 	it("Component gets rendered", () => {
 		render(
 			<ReduxProvider>
 				<Cart />
 			</ReduxProvider>
 		);
-		const cart = screen.getByText(/0.00/);
+		const cart = screen.getByRole("status").parentElement;
 		expect(cart).toBeInTheDocument();
 	});
 	it("Updates and displays correct price", () => {
-		const price = 10;
 		render(
 			<ReduxProvider>
-				<AddItemButton price={price} />
+				<AddItemButton price={10} />
 				<Cart />
 			</ReduxProvider>
 		);
@@ -56,8 +55,8 @@ describe("<Cart/>", () => {
 		expect(addItemButton).toBeInTheDocument();
 		expect(priceDisplay).toBeInTheDocument();
 
-		expect(priceDisplay.textContent).toBe("$" + formatPrice(0));
+		expect(priceDisplay.textContent).toBe("0");
 		fireEvent.click(addItemButton);
-		expect(priceDisplay.textContent).toBe("$" + formatPrice(price));
+		expect(priceDisplay.textContent).toBe("1");
 	});
 });

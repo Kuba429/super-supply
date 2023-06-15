@@ -4,16 +4,16 @@ import { useAppSelector } from "./store";
 
 export default function Cart() {
 	const cart = useAppSelector((state) => state.cart);
-	const price = cart.reduce((acc, c) => acc + c.price, 0);
+	const itemCount = cart.length;
 	return (
-		<div className="flex aspect-square items-center justify-center gap-1">
-			<span role="status">${formatPrice(price)}</span>
-			<FaShoppingCart size={20} />
+		<div className="flex max-w-xs items-center justify-end gap-1">
+			<span role="status">{itemCount}</span>
+			<FaShoppingCart className="aspect-square min-w-[20px]" size={20} />
 		</div>
 	);
 }
 
-export function formatPrice(price: number) {
-	const integerLength = Math.trunc(price).toString().length;
-	return price.toPrecision(integerLength + 2);
-}
+//export function formatPrice(price: number) {
+//	const integerLength = Math.trunc(price).toString().length;
+//	return price.toPrecision(integerLength + 2);
+//}
