@@ -39,7 +39,7 @@ export default function Testimonials() {
 	);
 }
 
-function Testimonial({
+export function Testimonial({
 	name,
 	description,
 	imageSrc,
