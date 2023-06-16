@@ -1,6 +1,6 @@
 import { fetchAllItems } from "@/app/data";
 import Image from "next/image";
-import AddToFavoritesButton from "./AddToFavorite";
+import AddToFavoritesButton from "./AddToFavorites";
 import AddToCartButton from "./AddToCartButton";
 
 async function fetchData(id: string) {
