@@ -1,13 +1,15 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useSearch } from "./search/hooks";
 
 export function SearchBar() {
+	// TODO this can easily be done statelessly using formData; something to think about
 	const [query, setQuery] = useState("");
+	const searchRouter = useSearch();
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		alert(query);
-		//redirect("/search"); // TODO
+		searchRouter.search({ q: query });
 	};
 	return (
 		<form
