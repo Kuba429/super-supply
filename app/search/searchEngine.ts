@@ -24,11 +24,12 @@ export function applyParamFilters(
 ) {
 	const params = parseSearchParams(rawParams);
 	return items.filter((item) => {
-		if (!matchesPriceRange(item, params)) return false;
-		if (!matchesManufacturers(item, params)) return false;
-		if (!matchesUsedBy(item, params)) return false;
-		if (!matchesCategories(item, params)) return false;
-		return true;
+		return (
+			matchesPriceRange(item, params) &&
+			matchesManufacturers(item, params) &&
+			matchesUsedBy(item, params) &&
+			matchesCategories(item, params)
+		);
 	});
 }
 
@@ -37,35 +38,36 @@ export function matchesPriceRange(
 	params: urlSeachParamsParsed
 ) {
 	const itemActualPrice = item.price - item.price * (item.discount ?? 0);
-	if (itemActualPrice > params.priceMax) return false;
-	if (itemActualPrice < params.priceMin) return false;
-	return true;
+	return (
+		itemActualPrice < params.priceMax && itemActualPrice > params.priceMin
+	);
 }
 
 export function matchesCategories(
 	item: itemType,
 	params: urlSeachParamsParsed
 ) {
-	if (params.categories.length < 1) return true;
-	if (item.categories.some((c) => params.categories.includes(c))) return true;
-	return false;
+	return (
+		params.categories.length < 1 ||
+		item.categories.some((c) => params.categories.includes(c))
+	);
 }
 
 export function matchesUsedBy(item: itemType, params: urlSeachParamsParsed) {
-	if (params.usedBy.length < 1) return true;
-	if (item.usedBy.some((c) => params.usedBy.includes(c.toLowerCase())))
-		return true;
-	return false;
+	return (
+		params.usedBy.length < 1 ||
+		item.usedBy.some((c) => params.usedBy.includes(c.toLowerCase()))
+	);
 }
 
 export function matchesManufacturers(
 	item: itemType,
 	params: urlSeachParamsParsed
 ) {
-	if (params.manufacturers.length < 1) return true;
-	if (params.manufacturers.includes(item.manufacturer?.toLowerCase() ?? ""))
-		return true;
-	return false;
+	return (
+		params.manufacturers.length < 1 ||
+		params.manufacturers.includes(item.manufacturer?.toLowerCase() ?? "")
+	);
 }
 
 export function parseSearchParams(params: urlSearchParamsRaw) {
