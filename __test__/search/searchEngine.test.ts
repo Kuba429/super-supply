@@ -4,6 +4,7 @@ import {
 	matchesCategories,
 	matchesManufacturers,
 	matchesPriceRange,
+	matchesQuery,
 	matchesUsedBy,
 	parseArrayParam,
 	parseSearchParams,
@@ -69,6 +70,18 @@ describe("ApplyParamFilters", () => {
 		});
 		expect(usedBySpiderman).toHaveLength(2);
 	});
+	it("filter by query", () => {
+		const queryTest = applyParamFilters(items, { q: "test2" });
+		expect(queryTest).toHaveLength(1);
+
+		const queryNonMatching = applyParamFilters(items, {
+			q: "non matching",
+		});
+		expect(queryNonMatching).toHaveLength(0);
+
+		const queryTtt = applyParamFilters(items, { q: "tT t" });
+		expect(queryTtt).toHaveLength(2);
+	});
 	it("filter by categories", () => {
 		const suits = applyParamFilters(items, { categories: "suits" });
 		expect(suits).toHaveLength(1);
@@ -114,6 +127,19 @@ describe("ApplyParamFilters", () => {
 });
 
 describe("Matching functions", () => {
+	it("matchesQuery", () => {
+		const m1 = matchesQuery(items[0], parseSearchParams({ q: "test" }));
+		expect(m1).toBe(true);
+
+		const m2 = matchesQuery(
+			items[0],
+			parseSearchParams({ q: "dont match on this query" })
+		);
+		expect(m2).toBe(false);
+
+		const m3 = matchesQuery(items[0], parseSearchParams({ q: "tt tm" }));
+		expect(m3).toBe(true);
+	});
 	it("matchesCategories", () => {
 		const matchedBySuits = matchesCategories(
 			items[0],

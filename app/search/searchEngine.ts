@@ -25,12 +25,27 @@ export function applyParamFilters(
 	const params = parseSearchParams(rawParams);
 	return items.filter((item) => {
 		return (
+			matchesQuery(item, params) &&
 			matchesPriceRange(item, params) &&
 			matchesManufacturers(item, params) &&
 			matchesUsedBy(item, params) &&
 			matchesCategories(item, params)
 		);
 	});
+}
+
+export function matchesQuery(item: itemType, params: urlSeachParamsParsed) {
+	if (!params.q || params.q.length < 1) return true;
+	const q = params.q!.trim().toLowerCase().split("");
+
+	for (let char of item.name) {
+		if (char.toLowerCase() === q[0]) {
+			q.shift();
+		}
+	}
+	if (q.length === 0) return true;
+
+	return false;
 }
 
 export function matchesPriceRange(
@@ -72,7 +87,7 @@ export function matchesManufacturers(
 
 export function parseSearchParams(params: urlSearchParamsRaw) {
 	const parsed: urlSeachParamsParsed = {
-		...params,
+		q: params.q?.toLowerCase(),
 		usedBy: parseArrayParam(params.usedBy ?? ""),
 		categories: parseArrayParam(params.categories ?? ""),
 		manufacturers: parseArrayParam(params.manufacturers ?? ""),
