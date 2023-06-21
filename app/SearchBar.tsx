@@ -1,16 +1,22 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useSearch } from "./search/hooks";
+import { usePathname } from "next/navigation";
 
 export function SearchBar() {
 	// TODO this can easily be done statelessly using formData; something to think about
 	const [query, setQuery] = useState("");
-	const searchRouter = useSearch();
+	const { search } = useSearch();
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		searchRouter.search({ q: query });
+		search({ q: query });
 	};
+
+	const path = usePathname();
+	useEffect(() => {
+		setQuery("");
+	}, [path]);
 	return (
 		<form
 			onSubmit={handleSubmit}
