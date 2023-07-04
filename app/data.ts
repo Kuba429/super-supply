@@ -26,6 +26,7 @@ export const categories = [
 	{ name: "body enhancements", image: "/items/hulk-serum.png" },
 ] as const;
 export type categoryType = (typeof categories)[number]["name"];
+export type categoriesType = typeof categories;
 
 export const manufacturers = [
 	{ name: "Stark Industries" },
