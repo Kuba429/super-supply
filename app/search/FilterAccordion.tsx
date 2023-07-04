@@ -15,7 +15,6 @@ export function AccordionFilter({
 	const [toggled, setToggled] = useState(selectedValues.length > 0);
 	return (
 		<div>
-			<h3 className="text-xl font-bold text-red-500">Filter</h3>
 			<span
 				className="cursor-pointer font-bold"
 				onClick={() => setToggled((x) => !x)}

@@ -4,6 +4,7 @@ import Filter from "./Filter";
 import { applyParamFilters, urlSearchParamsRaw } from "./searchEngine";
 
 async function fetchData(params: urlSearchParamsRaw) {
+	console.log(params);
 	return applyParamFilters(fetchAllItems(), params);
 }
 
