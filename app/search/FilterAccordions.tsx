@@ -1,8 +1,11 @@
 "use client";
 import { useState } from "react";
 import { categoriesType } from "../data";
+import { useSearchParams } from "next/navigation";
 export function CategoryFilter({ categories }: { categories: categoriesType }) {
-	const [toggled, setToggled] = useState(false);
+	const selectedCategories =
+		useSearchParams().get("categories")?.split(",") ?? [];
+	const [toggled, setToggled] = useState(selectedCategories.length > 0);
 	return (
 		<div>
 			<h3 className="text-xl font-bold text-red-500">Filter</h3>
@@ -26,6 +29,9 @@ export function CategoryFilter({ categories }: { categories: categoriesType }) {
 								type="checkbox"
 								name="category"
 								value={c.name}
+								defaultChecked={selectedCategories.includes(
+									c.name
+								)}
 							/>{" "}
 							{c.name}
 						</label>
