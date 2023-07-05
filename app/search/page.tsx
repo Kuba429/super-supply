@@ -16,8 +16,7 @@ export default async function Search({
 	const data = await fetchData(searchParams);
 	return (
 		<>
-			{JSON.stringify(searchParams)}
-			<div className="flex flex-col gap-3 p-5 md:flex-row">
+			<div className="relative flex flex-col gap-3 p-5 md:flex-row">
 				{/* @ts-expect-error Async Server Component */}
 				<Filter />
 				<div className="flex flex-wrap justify-around gap-2 md:justify-start">

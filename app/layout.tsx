@@ -52,7 +52,7 @@ function Footer() {
 
 function Navbar() {
 	return (
-		<div className="container-lg sticky top-0 z-20 bg-slate-200">
+		<div className="container-lg sticky top-0 z-20 h-16 bg-slate-200">
 			<nav className="flex items-center justify-between border-b px-3 text-neutral-800">
 				<Link
 					href="/"

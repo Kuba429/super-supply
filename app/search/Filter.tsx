@@ -41,11 +41,12 @@ export default async function Filter() {
 		redirect("/search?" + urlParams.toString());
 	}
 	return (
-		<div className="h-fit w-full whitespace-nowrap rounded  bg-slate-100 p-3 lg:w-fit">
+		<div className="h-fit w-full whitespace-nowrap rounded bg-slate-100 p-3  md:sticky md:top-16 md:w-fit">
 			<h3 className="text-xl font-bold text-red-500">Filter</h3>
 			<form action={applyFiltersAction}>
 				{filters.map((f) => (
 					<AccordionFilter
+						key={"filter-" + f.paramKey}
 						title={f.title}
 						paramKey={f.paramKey}
 						values={f.values}
