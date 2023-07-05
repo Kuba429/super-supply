@@ -41,7 +41,7 @@ export default async function Filter() {
 		redirect("/search?" + urlParams.toString());
 	}
 	return (
-		<div className="h-fit rounded bg-slate-100 p-3">
+		<div className="h-fit w-full whitespace-nowrap rounded  bg-slate-100 p-3 lg:w-fit">
 			<h3 className="text-xl font-bold text-red-500">Filter</h3>
 			<form action={applyFiltersAction}>
 				{filters.map((f) => (
