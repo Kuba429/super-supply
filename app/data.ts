@@ -40,9 +40,7 @@ export const manufacturers = [
 	{ name: "Parker Industries" },
 	{ name: "Nelson and Murdock" },
 	{ name: "Department H" },
-	{ name: "Pym Technologies" },
 	{ name: "Red Room Industries" },
-	{ name: "" },
 ] as const;
 export type manufacturerType = (typeof manufacturers)[number]["name"];
 
@@ -181,7 +179,7 @@ export const fetchAllItems: () => itemType[] = () => {
 			name: "Infinity Gauntlet",
 			categories: ["weapons", "artifacts"],
 			image: "/banners/gauntlet.webp",
-			usedBy: ["Wolverine"],
+			usedBy: [],
 			price: 2_000_000,
 			manufacturer: "Department H",
 		},
