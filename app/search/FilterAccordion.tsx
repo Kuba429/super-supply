@@ -36,6 +36,7 @@ export function AccordionFilter({
 								name={paramKey}
 								value={v}
 								defaultChecked={selectedValues.includes(v)}
+								className="accent-red-500"
 							/>{" "}
 							{v}
 						</label>
