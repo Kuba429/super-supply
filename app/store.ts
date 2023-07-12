@@ -7,18 +7,24 @@ export const cartSlice = createSlice({
 	name: "cart",
 	initialState: getInitialCartState(),
 	reducers: {
-		remove: (state) => {
+		remove: (_state) => {
+			localStorage.setItem(LOCAL_STORAGE_CART_KEY, "");
 			return [];
 		},
 		addItem: (state, action: PayloadAction<itemType>) => {
-			return [...state, action.payload];
+			const newState = [...state, action.payload];
+			localStorage.setItem(
+				LOCAL_STORAGE_CART_KEY,
+				JSON.stringify(newState)
+			);
+			return newState;
 		},
 	},
 });
 
 function getInitialCartState() {
 	const persistedState = localStorage?.getItem(LOCAL_STORAGE_CART_KEY);
-	if (!persistedState) {
+	if (!persistedState || persistedState.length < 2) {
 		return [] as itemType[];
 	}
 	return JSON.parse(persistedState) as itemType[];
